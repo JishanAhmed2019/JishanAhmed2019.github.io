@@ -30,9 +30,10 @@
 </head>
 
 <body id="page-top" class="index">
-  <!-- Navigation (simplified for this example) -->
+  <!-- Navigation -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+      <!-- Brand and toggle -->
       <div class="navbar-header page-scroll">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -42,16 +43,54 @@
         </button>
         <a class="navbar-brand" href="#page-top">Jishan Ahmed</a>
       </div>
+      <!-- Navigation Links -->
       <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav navbar-right">
-          <!-- Other navigation items -->
+          <li class="page-scroll"><a href="#about">About Me</a></li>
+          <li class="page-scroll"><a href="#education">Education</a></li>
+          <li class="page-scroll"><a href="#experience">Experience</a></li>
+          <li class="page-scroll"><a href="#research">Research</a></li>
+          <li class="page-scroll"><a href="#publications">Publications</a></li>
+          <li class="page-scroll"><a href="#contact">Contact</a></li>
           <li class="page-scroll"><a href="#simulation">Simulation</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- (Other sections of your CV would go here) -->
+  <!-- Header Section (Personal Info) -->
+  <header>
+    <section id="about" class="success">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h1 class="text-uppercase">Jishan Ahmed</h1>
+            <p class="lead">Data Science Assistant Professor &amp; Machine Learning Scientist</p>
+            <hr class="star-light">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <!-- Replace with your portrait (place it in the img/ folder) -->
+            <img src="img/portrait.jpg" alt="Jishan Ahmed Portrait" class="img-responsive img-rounded img-centered">
+          </div>
+          <div class="col-sm-8 text-left">
+            <p>
+              I'm a Data Science Assistant Professor at Weber State University and a Machine Learning Scientist with a passion for building open tools and innovative predictive models.
+            </p>
+            <p>
+              I hold a Ph.D. in Data Science (in progress) from Bowling Green State University, an M.A. in Mathematics from Ball State University, and advanced degrees from the University of Dhaka.
+            </p>
+            <p>
+              View my full CV in PDF format <a href="Jishan_Ahmed_CV.pdf" target="_blank">here</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- (Other sections like Education, Experience, etc. go here) -->
 
   <!-- Simulation Section -->
   <section id="simulation" class="success">
@@ -62,18 +101,70 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <!-- p5.js will place the canvas in this div -->
+          <!-- This div will hold the p5.js canvas -->
           <div id="sketch-holder"></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section (if applicable) -->
+  <section id="contact">
+    <div class="container">
+      <div class="row text-center">
+        <h2>Contact</h2>
+        <hr class="star-light">
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Email: <a href="mailto:jahmedbsu@gmail.com">jahmedbsu@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/jishan-ahmed-689aa63b" target="_blank">linkedin.com/in/jishan-ahmed-689aa63b</a></p>
+          <p>Google Scholar: <a href="https://scholar.google.com/citations?hl=en&user=zRYCPIQAAAAJ" target="_blank">scholar.google.com/citations</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="footer-above">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col col-md-4">
+            <h3>Location</h3>
+            <p>Ogden, UT</p>
+          </div>
+          <div class="footer-col col-md-4">
+            <h3>Contact</h3>
+            <ul class="list-inline">
+              <li><a href="mailto:jahmedbsu@gmail.com" class="btn-social btn-outline"><i class="fa fa-envelope"></i></a></li>
+              <li><a href="https://github.com/Jishan" class="btn-social btn-outline"><i class="fa fa-github"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/jishan-ahmed-689aa63b" class="btn-social btn-outline"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-4">
+            <h3>Blog</h3>
+            <p>I occasionally share my thoughts on machine learning on <a href="https://peekaboo-vision.blogspot.com" target="_blank">my blog</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-below">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            &copy; 2024 Jishan Ahmed. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Bootstrap JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Smooth Scrolling (optional) -->
+  <!-- Smooth Scrolling -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <!-- Load the p5.js sketch -->
   <script src="sketch.js"></script>
