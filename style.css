@@ -161,7 +161,7 @@ footer {
   border: 2px solid #acb3b9;
 }
 
-/* Social Buttons */
+/* Social Buttons (using Academicons for Google Scholar, LinkedIn, GitLab) */
 .btn-social {
   display: inline-block;
   height: 50px;
