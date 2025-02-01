@@ -100,17 +100,18 @@ section {
   padding: 100px 0;
 }
 
-/* Simulation Section Styles */
+/* Simulation Section */
 #simulation {
   background-color: #acb3b9;
   color: #fff;
   text-align: center;
 }
 
-/* Container for p5.js canvas */
+/* The container for the p5.js canvas */
 #sketch-holder {
   min-height: 400px;
-  border: 2px dashed red; /* Debug border; remove when ready */
+  /* Debug border so you can see the container. Remove once confirmed. */
+  border: 2px dashed red;
 }
 
 /* Footer */
