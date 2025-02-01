@@ -66,11 +66,10 @@ hr.star-primary:after {
   color: #000000;
 }
 
-/* Header Section */
+/* Header Section (About Me) */
 header {
   text-align: center;
-  /* Use a lighter background for the header to separate it from the navigation */
-  background-color: #f8f8f8;
+  background-color: #f8f8f8; /* Light background for the header */
   color: #000;
   padding-top: 100px;
   padding-bottom: 50px;
@@ -82,7 +81,7 @@ header img {
 
 /* Navigation Bar */
 .navbar-default {
-  background-color: rgb(73, 35, 101);
+  background-color: rgb(73, 35, 101); /* Purple navigation */
   border-color: rgb(73, 35, 101);
 }
 .navbar-default .navbar-brand {
@@ -113,7 +112,7 @@ section {
   width: 800px;
   height: 600px;
   margin: 0 auto;
-  border: 2px dashed red; /* Debug border; remove once confirmed */
+  border: 2px dashed red; /* Debug border; remove when confirmed */
 }
 
 /* Footer */
