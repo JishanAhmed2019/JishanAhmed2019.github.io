@@ -4,14 +4,24 @@ let capturer;
 let isCapturing = false;
 
 function setup() {
-  // Create the canvas and attach it to the div with id "sketch-holder"
-  canvas = createCanvas(600, 400, WEBGL);
-  canvas.parent('sketch-holder');
+  console.log('p5.js setup started');
   
-  // Set a frame rate for smoother animation
+  // Create a 600x400 canvas with WEBGL renderer
+  canvas = createCanvas(600, 400, WEBGL);
+  
+  // Attach the canvas to the div with id "sketch-holder"
+  let holder = select('#sketch-holder');
+  if (holder) {
+    canvas.parent(holder);
+    console.log('Canvas successfully attached to #sketch-holder');
+  } else {
+    console.error('ERROR: No element with id "sketch-holder" found!');
+  }
+  
+  // Set a smooth frame rate
   frameRate(60);
   
-  // Initialize CCapture (optional – for recording the simulation)
+  // Initialize CCapture (optional – used if you press "r" to record)
   capturer = new CCapture({
     format: 'webm',
     framerate: 60,
@@ -21,23 +31,23 @@ function setup() {
 
 function draw() {
   background(200);
-
-  // Apply a rotation for animation
+  
+  // Rotate the sphere along the Y-axis
   rotateY(angle);
   angle += 0.01;
   
-  // Draw a sphere
+  // Draw a sphere with a radius of 100
   fill(150, 100, 250);
   noStroke();
   sphere(100);
   
-  // If recording is enabled, capture the frame
+  // If recording is enabled, capture the current frame
   if (isCapturing) {
     capturer.capture(canvas.elt);
   }
 }
 
-// Toggle recording when "r" key is pressed (optional)
+// Toggle recording on key press ("r")
 function keyPressed() {
   if (key === 'r' || key === 'R') {
     if (!isCapturing) {
