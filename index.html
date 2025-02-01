@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,12 +27,10 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-
 <body id="page-top" class="index">
-  <!-- Navigation (navigation bar remains purple) -->
+  <!-- Navigation Bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <!-- Brand and toggle -->
       <div class="navbar-header page-scroll">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -43,7 +40,6 @@
         </button>
         <a class="navbar-brand" href="#page-top">Jishan Ahmed</a>
       </div>
-      <!-- Navigation Links -->
       <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="page-scroll"><a href="#about">About</a></li>
@@ -59,7 +55,7 @@
     </div>
   </nav>
 
-  <!-- Header Section (Personal Info) -->
+  <!-- Header Section / About -->
   <header style="background-color: #f8f8f8;">
     <section id="about" class="success">
       <div class="container">
@@ -71,13 +67,12 @@
           </div>
         </div>
         <div class="row">
-          <!-- Increase image column width for a larger image -->
+          <!-- Portrait Image Column (enlarged) -->
           <div class="col-sm-5">
-            <!-- Use the raw URL for the image -->
             <img src="https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JishanPhoto.jpeg" alt="Jishan Ahmed Portrait" class="img-responsive img-rounded img-centered large-photo" />
           </div>
+          <!-- Personal Info Text Block with background RGB (253,80,0) and black text -->
           <div class="col-sm-7">
-            <!-- Text block with background color RGB (253,80,0) and black text -->
             <div class="info-block">
               <p>
                 I'm a Data Science Assistant Professor at Weber State University and a passionate Machine Learning Scientist.
@@ -87,12 +82,10 @@
               <p>
                 My mission is to develop cost-aware machine learning methodologies and open tools that democratize access to high-quality predictive algorithms.
               </p>
-             <p>
-    View my full CV in PDF format 
-    <a href="https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JAhmedCV2025.pdf?raw=true" target="_blank">
-      here
-    </a>.
-  </p>
+              <p>
+                View my full CV in PDF format 
+                <a href="javascript:void(0);" onclick="openCVModal();">here</a>.
+              </p>
             </div>
           </div>
         </div>
@@ -199,30 +192,6 @@
     </div>
   </section>
 
-  <!-- Current Projects Section -->
-  <section id="current-projects" class="success">
-    <div class="container">
-      <div class="row text-center">
-        <h2>Current Projects</h2>
-        <hr class="star-light" />
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <strong>PhD Dissertation:</strong> Cost-Aware Machine Learning and Deep Learning for Extremely Imbalanced Data<br />
-              <em>Overview:</em> Introducing novel oversampling techniques and a modified focal loss function for improved predictive modeling.
-            </li>
-            <li class="list-group-item">
-              <strong>Graduate Research Project:</strong> Comparative Analysis of Random Forest and ANN for Breast Cancer Classification<br />
-              <em>Overview:</em> Evaluating and comparing RF and ANN on the Wisconsin Breast Cancer Dataset using 10-fold cross-validation.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Research Section -->
   <section id="research" class="success">
     <div class="container">
@@ -283,9 +252,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <!-- The p5.js canvas will be inserted here -->
           <div id="sketch-holder"></div>
-          <!-- Simulation description -->
           <p class="simulation-description">
             This interactive simulation displays a rotating wireframe container sphere (diameter 500) with 100 colorful bouncing balls.
             It demonstrates collision detection and dynamic motion in a constrained 3D environment.
@@ -347,6 +314,23 @@
     </div>
   </footer>
 
+  <!-- CV Modal -->
+  <div id="cvModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cvModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="cvModalLabel">Curriculum Vitae</h4>
+        </div>
+        <div class="modal-body">
+          <iframe src="https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JAhmedCV2025.pdf?raw=true" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Bootstrap JavaScript -->
@@ -355,6 +339,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <!-- Load the p5.js sketch -->
   <script src="sketch.js"></script>
+  <script>
+    function openCVModal() {
+      $('#cvModal').modal('show');
+    }
+  </script>
 </body>
-
 </html>
