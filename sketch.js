@@ -29,11 +29,10 @@ function setup() {
   // Set frame rate to 60 fps
   frameRate(60);
   
-  // Set a wider perspective: field of view, aspect ratio, and clipping planes
+  // Set a wider perspective: field of view, aspect ratio, near and far clipping planes
   perspective(PI / 3, width / height, 0.1, 10000);
   
-  // Set the camera so that the full container sphere (diameter 500) is visible.
-  // Increase the z-value if needed.
+  // Set the camera so the entire container sphere is visible (adjust z if needed)
   camera(0, 0, 1100, 0, 0, 0, 0, 1, 0);
   console.log("Camera set to: (0, 0, 1100)");
 
