@@ -29,10 +29,14 @@ function setup() {
   // Set frame rate to 60 fps
   frameRate(60);
   
-  // Set a custom camera so the whole container sphere is visible
-  // Parameters: camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)
-  camera(0, 0, 700, 0, 0, 0, 0, 1, 0);
+  // Set a wider perspective: field of view, aspect ratio, and clipping planes
+  perspective(PI / 3, width / height, 0.1, 10000);
   
+  // Set the camera so that the full container sphere (diameter 500) is visible.
+  // Increase the z-value if needed.
+  camera(0, 0, 1100, 0, 0, 0, 0, 1, 0);
+  console.log("Camera set to: (0, 0, 1100)");
+
   // Initialize CCapture (optional, for recording)
   capturer = new CCapture({
     format: 'webm',
@@ -49,7 +53,7 @@ function setup() {
 function draw() {
   background(20);
 
-  // On-screen instructions
+  // On-screen instructions (drawn in screen space)
   push();
     resetMatrix();
     fill(255);
@@ -62,7 +66,7 @@ function draw() {
   directionalLight(255, 255, 255, 0.5, 0.5, -1);
   pointLight(255, 255, 255, 0, -300, 300);
 
-  // Increase rotation speeds for a dynamic effect
+  // Increase rotation angles for dynamic effect
   angleY += 0.3;
   angleX += 0.15;
   rotateY(angleY);
