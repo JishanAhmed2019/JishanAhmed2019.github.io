@@ -69,7 +69,7 @@ hr.star-primary:after {
 /* Header Section */
 header {
   text-align: center;
-  background: #acb3b9;
+  background-color: rgb(73, 35, 101);
   color: white;
   padding-top: 100px;
   padding-bottom: 50px;
@@ -107,11 +107,12 @@ section {
   text-align: center;
 }
 
-/* The container for the p5.js canvas */
+/* Container for the p5.js canvas */
 #sketch-holder {
-  min-height: 400px;
-  /* Debug border so you can see the container. Remove once confirmed. */
-  border: 2px dashed red;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  border: 2px dashed red; /* For debugging; remove once confirmed */
 }
 
 /* Footer */
