@@ -29,12 +29,12 @@ function setup() {
   // Set frame rate to 60 fps
   frameRate(60);
   
-  // Set a wider perspective: field of view, aspect ratio, near and far clipping planes
+  // Set perspective and camera
   perspective(PI / 3, width / height, 0.1, 10000);
-  
-  // Set the camera so the entire container sphere is visible (adjust z if needed)
-  camera(0, 0, 1100, 0, 0, 0, 0, 1, 0);
-  console.log("Camera set to: (0, 0, 1100)");
+  // Set the camera closer to make the sphere appear larger.
+  // You can adjust the z-value (e.g., 700) to your liking.
+  camera(0, 0, 700, 0, 0, 0, 0, 1, 0);
+  console.log("Camera set to: (0, 0, 700)");
 
   // Initialize CCapture (optional, for recording)
   capturer = new CCapture({
