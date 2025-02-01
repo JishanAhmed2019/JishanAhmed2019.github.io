@@ -29,6 +29,10 @@ function setup() {
   // Set frame rate to 60 fps
   frameRate(60);
   
+  // Set a custom camera so the whole container sphere is visible
+  // Parameters: camera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)
+  camera(0, 0, 700, 0, 0, 0, 0, 1, 0);
+  
   // Initialize CCapture (optional, for recording)
   capturer = new CCapture({
     format: 'webm',
@@ -78,7 +82,7 @@ function draw() {
     ball.display();
   }
 
-  // Capture the current frame if recording is enabled.
+  // Capture the current frame if recording is enabled
   if (isCapturing) {
     capturer.capture(canvas.elt);
   }
@@ -95,7 +99,7 @@ function keyPressed() {
       console.log("Recording stopped.");
       isCapturing = false;
       capturer.stop();
-      capturer.save(); // Downloads the video file
+      capturer.save(); // Triggers a download of the video file
     }
   }
 }
