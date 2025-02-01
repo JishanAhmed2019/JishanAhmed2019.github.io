@@ -14,8 +14,8 @@ let isCapturing = false;
 function setup() {
   console.log('p5.js setup started');
 
-  // Create a fixed-size canvas (600 x 400) with WEBGL renderer
-  canvas = createCanvas(600, 400, WEBGL);
+  // Create a fixed-size canvas 800 x 600 with WEBGL renderer
+  canvas = createCanvas(800, 600, WEBGL);
   
   // Attach the canvas to the div with id "sketch-holder"
   let holder = select('#sketch-holder');
@@ -29,7 +29,7 @@ function setup() {
   // Set frame rate to 60 fps
   frameRate(60);
   
-  // Initialize CCapture (if you want to record)
+  // Initialize CCapture (optional, for recording)
   capturer = new CCapture({
     format: 'webm',
     framerate: 60,
@@ -95,7 +95,7 @@ function keyPressed() {
       console.log("Recording stopped.");
       isCapturing = false;
       capturer.stop();
-      capturer.save(); // Triggers a download of the video file
+      capturer.save(); // Downloads the video file
     }
   }
 }
