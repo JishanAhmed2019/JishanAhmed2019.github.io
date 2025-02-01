@@ -75,14 +75,18 @@ header {
   padding-bottom: 50px;
 }
 #about.success {
-  /* Change background for the personal info block only */
+  /* Only the personal info text block gets the RGB(253,80,0) background */
   background-color: rgb(253,80,0);
-  padding: 40px 0;
-  color: #fff;
+  padding: 40px;
+  color: #000; /* Black text */
+  border-radius: 5px;
 }
 header img {
   display: block;
   margin: 0 auto 20px;
+  /* Increase image size */
+  max-width: 100%;
+  height: auto;
 }
 
 /* Navigation Bar */
