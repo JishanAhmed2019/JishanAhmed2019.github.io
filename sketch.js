@@ -7,7 +7,7 @@ let isCapturing = false;
 function setup() {
   console.log('p5.js setup started');
   
-  // Create a fixed-size canvas (600 x 400) with WEBGL
+  // Create a canvas with fixed size 600 x 400 using WEBGL renderer
   canvas = createCanvas(600, 400, WEBGL);
   
   // Attach the canvas to the container with id "sketch-holder"
@@ -19,10 +19,10 @@ function setup() {
     console.error('ERROR: No element with id "sketch-holder" found!');
   }
   
-  // Set the frame rate to 60 fps
+  // Set frame rate to 60 fps
   frameRate(60);
   
-  // Initialize CCapture (optional, for recording)
+  // Initialize CCapture (optional for recording)
   capturer = new CCapture({
     format: 'webm',
     framerate: 60,
@@ -32,12 +32,12 @@ function setup() {
 
 function draw() {
   background(20);
-
-  // Set up lights for a shiny look
+  
+  // Set up lights for a shiny appearance
   ambientLight(80);
   directionalLight(255, 255, 255, 0.5, 0.5, -1);
   pointLight(255, 255, 255, 0, -300, 300);
-
+  
   // Increase rotation angles
   angleY += 0.3;
   angleX += 0.15;
@@ -46,28 +46,28 @@ function draw() {
   rotateY(angleY);
   rotateX(angleX);
   
-  // Draw a wireframe container sphere (for context)
+  // Draw the wireframe container sphere
   push();
     noFill();
     stroke(150);
     strokeWeight(1);
-    sphere(250); // containerRadius from your original code
+    sphere(250); // container sphere
   pop();
   
-  // Draw a solid sphere inside to show rotation clearly
+  // Draw the rotating sphere (solid)
   push();
     fill(150, 100, 250);
     noStroke();
     sphere(100);
   pop();
 
-  // Capture the frame if recording is enabled
+  // Capture frame if recording is enabled
   if (isCapturing) {
     capturer.capture(canvas.elt);
   }
 }
 
-// Toggle recording when "r" key is pressed
+// Toggle recording on key press ("r")
 function keyPressed() {
   if (key === 'r' || key === 'R') {
     if (!isCapturing) {
