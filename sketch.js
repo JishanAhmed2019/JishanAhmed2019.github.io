@@ -31,7 +31,7 @@ function setup() {
   
   // Set perspective and camera
   perspective(PI / 3, width / height, 0.1, 10000);
-  // Set the camera closer (z=700) so the sphere appears larger.
+  // Set the camera so the container sphere is larger on the canvas.
   camera(0, 0, 700, 0, 0, 0, 0, 1, 0);
   console.log("Camera set to: (0, 0, 700)");
 
