@@ -69,8 +69,9 @@ hr.star-primary:after {
 /* Header Section */
 header {
   text-align: center;
-  background-color: rgb(73, 35, 101);
-  color: white;
+  /* Use a lighter background for the header to separate it from the navigation */
+  background-color: #f8f8f8;
+  color: #000;
   padding-top: 100px;
   padding-bottom: 50px;
 }
