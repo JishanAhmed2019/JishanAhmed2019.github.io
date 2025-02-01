@@ -1,15 +1,16 @@
 let canvas;
-let angle = 0;
+let angleY = 0;
+let angleX = 0;
 let capturer;
 let isCapturing = false;
 
 function setup() {
   console.log('p5.js setup started');
   
-  // Create a 600x400 canvas with WEBGL renderer
+  // Create a fixed-size canvas (600 x 400) with WEBGL
   canvas = createCanvas(600, 400, WEBGL);
   
-  // Attach the canvas to the div with id "sketch-holder"
+  // Attach the canvas to the container with id "sketch-holder"
   let holder = select('#sketch-holder');
   if (holder) {
     canvas.parent(holder);
@@ -18,10 +19,10 @@ function setup() {
     console.error('ERROR: No element with id "sketch-holder" found!');
   }
   
-  // Set a smooth frame rate
+  // Set the frame rate to 60 fps
   frameRate(60);
   
-  // Initialize CCapture (optional – used if you press "r" to record)
+  // Initialize CCapture (optional, for recording)
   capturer = new CCapture({
     format: 'webm',
     framerate: 60,
@@ -30,24 +31,43 @@ function setup() {
 }
 
 function draw() {
-  background(200);
+  background(20);
+
+  // Set up lights for a shiny look
+  ambientLight(80);
+  directionalLight(255, 255, 255, 0.5, 0.5, -1);
+  pointLight(255, 255, 255, 0, -300, 300);
+
+  // Increase rotation angles
+  angleY += 0.3;
+  angleX += 0.15;
   
-  // Rotate the sphere along the Y-axis
-  rotateY(angle);
-  angle += 0.01;
+  // Apply rotations
+  rotateY(angleY);
+  rotateX(angleX);
   
-  // Draw a sphere with a radius of 100
-  fill(150, 100, 250);
-  noStroke();
-  sphere(100);
+  // Draw a wireframe container sphere (for context)
+  push();
+    noFill();
+    stroke(150);
+    strokeWeight(1);
+    sphere(250); // containerRadius from your original code
+  pop();
   
-  // If recording is enabled, capture the current frame
+  // Draw a solid sphere inside to show rotation clearly
+  push();
+    fill(150, 100, 250);
+    noStroke();
+    sphere(100);
+  pop();
+
+  // Capture the frame if recording is enabled
   if (isCapturing) {
     capturer.capture(canvas.elt);
   }
 }
 
-// Toggle recording on key press ("r")
+// Toggle recording when "r" key is pressed
 function keyPressed() {
   if (key === 'r' || key === 'R') {
     if (!isCapturing) {
@@ -57,7 +77,7 @@ function keyPressed() {
     } else {
       isCapturing = false;
       capturer.stop();
-      capturer.save();
+      capturer.save(); // Downloads the video file
       console.log("Recording stopped");
     }
   }
