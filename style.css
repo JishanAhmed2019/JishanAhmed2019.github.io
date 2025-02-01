@@ -66,13 +66,19 @@ hr.star-primary:after {
   color: #000000;
 }
 
-/* Header Section (About Me) */
+/* Header Section (About) */
 header {
   text-align: center;
-  background-color: #f8f8f8; /* Light background for the header */
+  background-color: #f8f8f8; /* Light background for header */
   color: #000;
   padding-top: 100px;
   padding-bottom: 50px;
+}
+#about.success {
+  /* Change background for the personal info block only */
+  background-color: rgb(253,80,0);
+  padding: 40px 0;
+  color: #fff;
 }
 header img {
   display: block;
@@ -81,7 +87,7 @@ header img {
 
 /* Navigation Bar */
 .navbar-default {
-  background-color: rgb(73, 35, 101); /* Purple navigation */
+  background-color: rgb(73, 35, 101);
   border-color: rgb(73, 35, 101);
 }
 .navbar-default .navbar-brand {
@@ -112,7 +118,7 @@ section {
   width: 800px;
   height: 600px;
   margin: 0 auto;
-  border: 2px dashed red; /* Debug border; remove when confirmed */
+  border: 2px dashed red; /* Debug border; remove once confirmed */
 }
 
 /* Footer */
