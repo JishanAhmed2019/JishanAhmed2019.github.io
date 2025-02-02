@@ -17,34 +17,30 @@
   <!-- Custom CSS -->
   <link href="style.css" rel="stylesheet" />
 
-  <!-- p5.js and CCapture libraries for the simulation -->
+  <!-- p5.js and CCapture libraries for fluid simulation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ccapture.js@1.1.0/build/CCapture.all.min.js"></script>
 
-  <!-- HTML5 Shim and Respond.js for IE8 support (optional) -->
+  <!-- Include dat.gui (from your GitHub repo) -->
+  <script src="dat.gui.min.js"></script>
+
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <!-- Font Awesome (for envelope and Twitter icons) -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  <!-- Academicons (for Google Scholar icon) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.5/css/academicons.min.css" 
-        integrity="sha512-hVJ1X0cM7VSl/Sa19FeO9S0Apu1p5kyFNV+0OZ+XSp7DHS9mTt8pzFvRYYhX+QSnUgAZceukd1+wuoSgF0ZH8w==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Additional CSS for fluid background -->
   <style>
-    /* Fluid simulation background canvas */
+    /* Full-screen fluid simulation background canvas */
     #fluidBackground {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: -1; /* Behind all content */
-      pointer-events: none; /* Allows clicks to pass through */
+      z-index: -1; /* Ensures the canvas is behind the content */
+      pointer-events: none;
     }
-    /* Ensure body and html fill viewport */
     html, body {
       margin: 0;
       padding: 0;
@@ -97,13 +93,15 @@
           </div>
         </div>
         <div class="row">
+          <!-- Portrait Image Column -->
           <div class="col-sm-5">
             <img src="https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JishanPhoto.jpeg" alt="Jishan Ahmed Portrait" class="img-responsive img-rounded img-centered large-photo" />
           </div>
+          <!-- Personal Info -->
           <div class="col-sm-7">
             <div class="info-block">
               <p>
-                I'm a Data Science Assistant Professor at Weber State University. Empowering my students to reach their goals by fostering their confidence in their ability is the primary focus of my teaching career.
+                I'm a Data Science Assistant Professor at Weber State University. My focus is on empowering students through data science and machine learning.
               </p>
               <p>
                 View my full CV in PDF format 
@@ -162,8 +160,7 @@
             <h4>Weber State University, Ogden, UT</h4>
             <p><em>July 2023 – Present</em></p>
             <p>
-              Teaching courses in Probability &amp; Statistics, Factor &amp; Cluster Analysis, Applied Data Mining &amp; Predictive Analytics,
-              Statistical Analysis of Big and Small Data, and Advanced Statistical Learning.
+              Teaching courses in Probability &amp; Statistics, Cluster Analysis, Data Mining, and Advanced Statistical Learning.
             </p>
           </div>
           <div class="experience-item">
@@ -178,8 +175,8 @@
             <p><em>August 2018 – August 2019</em></p>
             <ul>
               <li>Developed personalized, data-driven learning plans.</li>
-              <li>Enhanced instructional planning via data visualization and collaboration.</li>
-              <li>Boosted parent engagement to support student success.</li>
+              <li>Enhanced instructional planning with data visualization.</li>
+              <li>Boosted parent engagement for student success.</li>
             </ul>
           </div>
         </div>
@@ -199,7 +196,7 @@
           <ul class="list-group">
             <li class="list-group-item">
               <strong>Data Science Assistant Professor</strong> – Weber State University, Ogden, UT<br />
-              <em>Courses:</em> Probability &amp; Statistics I, Factor &amp; Cluster Analysis, Applied Data Mining &amp; Predictive Analytics, Statistical Analysis of Big and Small Data, Advanced Statistical Learning.
+              <em>Courses:</em> Probability &amp; Statistics I, Cluster Analysis, Data Mining, Advanced Statistical Learning.
             </li>
             <li class="list-group-item">
               <strong>Teaching Instructor</strong> – Bowling Green State University, Bowling Green, OH<br />
@@ -286,7 +283,7 @@
     </div>
   </section>
 
-  <!-- Simulation Section -->
+  <!-- Simulation Section (Separate from background fluid simulation) -->
   <section id="simulation" class="success">
     <div class="container">
       <div class="row text-center">
@@ -359,7 +356,8 @@
           </div>
           <div class="footer-col col-md-4">
             <h3>News</h3>
-             <p>Read about the <a href="https://www.bgsu.edu/news/2023/10/bgsu-awards-first-doctorate-in-data-science-four-years-after-launching-rigorous-program-to-meet-workforce-demands.html" target="_blank" rel="noopener">BGSU's First Doctorate in Data Science</a> awarded four years after launching the program.</p>
+            <p>Read about the <a href="https://www.bgsu.edu/news/2023/10/bgsu-awards-first-doctorate-in-data-science-four-years-after-launching-rigorous-program-to-meet-workforce-demands.html" target="_blank" rel="noopener">
+              BGSU's First Doctorate in Data Science</a> awarded four years after launching the program.</p>
           </div>
         </div>
       </div>
@@ -386,7 +384,6 @@
           <h4 class="modal-title" id="cvModalLabel">Curriculum Vitae</h4>
         </div>
         <div class="modal-body">
-          <!-- Using Google Docs viewer to embed the PDF -->
           <iframe src="https://docs.google.com/gview?embedded=true&amp;url=https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JAhmedCV2025.pdf" style="width: 100%; height: 600px;" frameborder="0"></iframe>
         </div>
       </div>
@@ -400,49 +397,9 @@
   <!-- Smooth Scrolling -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-  <!-- p5.js Fluid Simulation Background Sketch -->
-  <script>
-    let particles = [];
-    let numParticles = 1000; // Adjust for performance
-    function setup() {
-      // Create the canvas using full window dimensions and assign the existing ID
-      let cnv = createCanvas(windowWidth, windowHeight);
-      cnv.id('fluidBackground');
-      background(0);
-      // Initialize particles at random positions
-      for (let i = 0; i < numParticles; i++) {
-        particles.push(createVector(random(width), random(height)));
-      }
-    }
-    function draw() {
-      // Draw a translucent background to create trails
-      fill(0, 20);
-      noStroke();
-      rect(0, 0, width, height);
-      // Set particle stroke properties
-      stroke(0, 255, 255);
-      strokeWeight(2);
-      // Update and draw each particle
-      for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-        // Create a flow field using Perlin noise
-        let angle = noise(p.x * 0.005, p.y * 0.005, frameCount * 0.01) * TWO_PI * 2;
-        let v = p5.Vector.fromAngle(angle);
-        p.add(v);
-        // Wrap particles around edges
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-        point(p.x, p.y);
-      }
-    }
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
-    }
-  </script>
-
-  <!-- If you have additional p5.js sketches or simulation code, load them here -->
+  <!-- Load the fluid simulation script (Pavel's script.js from your repo) -->
+  <script src="script.js"></script>
+  <!-- Optionally, load additional sketches if needed -->
   <script src="sketch.js"></script>
   <script>
     function openCVModal() {
