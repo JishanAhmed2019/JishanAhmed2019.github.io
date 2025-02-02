@@ -1,127 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>My Fluid Simulation Academic Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      /* Reset margins and force full-viewport display */
-      html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-      /* The canvas will cover the entire viewport */
-      canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* The canvas is at the back */
-        z-index: 0;
-      }
-      /* Content overlay (your academic info) */
-      .content {
-        position: relative;
-        z-index: 1;
-        color: #fff;
-        padding: 20px;
-        font-family: sans-serif;
-        /* Optional: add a semi-transparent background */
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-    </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jishan Ahmed - Data Science Assistant Professor and Machine Learning Scientist" />
+    <meta name="author" content="Jishan Ahmed" />
+    <title>Jishan Ahmed - Curriculum Vitae</title>
+
+    <!-- Bootstrap Core CSS (using Bootswatch Flatly theme) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lato:400,700,400italic,700italic" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet" />
+
+    <!-- p5.js and CCapture libraries for any extra simulations if needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ccapture.js@1.1.0/build/CCapture.all.min.js"></script>
+
+    <!-- dat.GUI for the fluid simulation (MIT licensed) -->
+    <script src="https://paveldogreat.github.io/WebGL-Fluid-Simulation/dat.gui.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js for IE8 support (optional) -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Academicons (for Google Scholar icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.5/css/academicons.min.css"
+          integrity="sha512-hVJ1X0cM7VSl/Sa19FeO9S0Apu1p5kyFNV+0OZ+XSp7DHS9mTt8pzFvRYYhX+QSnUgAZceukd1+wuoSgF0ZH8w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
-    <!-- The fluid simulation canvas -->
-    <canvas id="fluid-canvas"></canvas>
-    
-    <!-- Your academic content overlaid on top -->
-    <div class="content">
-      <h1>Dr. Jane Doe</h1>
-      <p>Welcome to my academic website. Here you’ll find my research, publications, and teaching portfolio.</p>
+  <body id="page-top" class="index">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#page-top">Jishan Ahmed</a>
+        </div>
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="page-scroll"><a href="#about">About</a></li>
+            <li class="page-scroll"><a href="#education">Education</a></li>
+            <li class="page-scroll"><a href="#experience">Experience</a></li>
+            <li class="page-scroll"><a href="#teaching">Teaching</a></li>
+            <li class="page-scroll"><a href="#research">Research</a></li>
+            <li class="page-scroll"><a href="#publications">Publications</a></li>
+            <li class="page-scroll"><a href="#simulation">Simulation</a></li>
+            <li class="page-scroll"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section (About) -->
+    <header style="background-color: #f8f8f8;">
+      <section id="about" class="success">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h1 class="text-uppercase">Jishan Ahmed</h1>
+              <p class="lead">Data Science Assistant Professor</p>
+              <hr class="star-light" />
+            </div>
+          </div>
+          <div class="row">
+            <!-- Portrait Image Column -->
+            <div class="col-sm-5">
+              <img src="https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JishanPhoto.jpeg" alt="Jishan Ahmed Portrait" class="img-responsive img-rounded img-centered large-photo" />
+            </div>
+            <!-- Personal Info Text Block -->
+            <div class="col-sm-7">
+              <div class="info-block">
+                <p>
+                  I'm a Data Science Assistant Professor at Weber State University. Empowering my students to reach their goals by fostering their confidence in their ability is the primary focus of my teaching career.
+                </p>
+                <p>
+                  View my full CV in PDF format <a href="javascript:void(0);" onclick="openCVModal();">here</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Education Section -->
+    <section id="education">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Education</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <strong>Ph.D. in Data Science</strong> – Bowling Green State University, Bowling Green, OH
+                <span class="pull-right">August 2023</span>
+              </li>
+              <li class="list-group-item">
+                <strong>M.A. in Mathematics</strong> – Ball State University, Muncie, IN
+                <span class="pull-right">May 2018</span>
+              </li>
+              <li class="list-group-item">
+                <strong>M.S. in Applied Mathematics</strong> – University of Dhaka, Dhaka, Bangladesh
+                <span class="pull-right">January 2012</span>
+              </li>
+              <li class="list-group-item">
+                <strong>B.S. in Mathematics</strong> – University of Dhaka, Dhaka, Bangladesh
+                <span class="pull-right">July 2010</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="success">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Experience</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="experience-item">
+              <h3>Data Science Assistant Professor</h3>
+              <h4>Weber State University, Ogden, UT</h4>
+              <p><em>July 2023 – Present</em></p>
+              <p>
+                Teaching courses in Probability &amp; Statistics, Factor &amp; Cluster Analysis, Applied Data Mining &amp; Predictive Analytics, Statistical Analysis of Big and Small Data, and Advanced Statistical Learning.
+              </p>
+            </div>
+            <div class="experience-item">
+              <h3>Teaching Instructor</h3>
+              <h4>Bowling Green State University, Bowling Green, OH</h4>
+              <p><em>January 2023 – May 2023</em></p>
+              <p>Instructed a course in Business Analytics.</p>
+            </div>
+            <div class="experience-item">
+              <h3>Math Teacher</h3>
+              <h4>Seton Catholic High School, Richmond, IN</h4>
+              <p><em>August 2018 – August 2019</em></p>
+              <ul>
+                <li>Developed personalized, data-driven learning plans.</li>
+                <li>Enhanced instructional planning via data visualization and collaboration.</li>
+                <li>Boosted parent engagement to support student success.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section id="teaching" class="success">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Teaching</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <strong>Data Science Assistant Professor</strong> – Weber State University, Ogden, UT<br />
+                <em>Courses:</em> Probability &amp; Statistics I, Factor &amp; Cluster Analysis, Applied Data Mining &amp; Predictive Analytics, Statistical Analysis of Big and Small Data, Advanced Statistical Learning.
+              </li>
+              <li class="list-group-item">
+                <strong>Teaching Instructor</strong> – Bowling Green State University, Bowling Green, OH<br />
+                <em>Course:</em> Business Analytics.
+              </li>
+              <li class="list-group-item">
+                <strong>Math Teacher</strong> – Seton Catholic High School, Richmond, IN<br />
+                Developed personalized, data-driven learning plans and collaborated with colleagues and parents.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="success">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Research</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="research-item">
+              <h3>PhD Dissertation</h3>
+              <p>
+                <strong>Cost-Aware Machine Learning and Deep Learning for Extremely Imbalanced Data</strong><br />
+                Introduced novel oversampling techniques and a modified focal loss function to enhance predictive modeling.
+                <a href="https://gitlab.com/Jishan" target="_blank">[Link]</a>
+              </p>
+              <p><small>Advisor: Dr. Robert C. Green II, Bowling Green State University</small></p>
+            </div>
+            <div class="research-item">
+              <h3>Current Project</h3>
+              <p>
+                <strong>Alzheimer’s Disease Prediction Using Sequence Models</strong>
+                <a href="https://github.com/JishanBSU2018/Machine-learning-Graduate-Project.git" target="_blank">[Link]</a>
+              </p>
+              <p><small>Team members: ...</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="success">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Publications</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="list-group">
+              <li class="list-group-item">
+                Ahmed, J., &amp; Green II, R. C. (2024). Cost aware LSTM model for predicting hard disk drive failures based on extremely imbalanced SMART sensors data. <em>Engineering Applications of Artificial Intelligence, 127</em>, 107339.
+              </li>
+              <li class="list-group-item">
+                Ahmed, J., &amp; Green II, R. C. (2024). Leveraging survival analysis in cost‐aware deepnet for efficient hard drive failure prediction. <em>Neural Computing and Applications</em>, 1–16.
+              </li>
+              <li class="list-group-item">
+                Ahmed, J. (2023). <em>Cost‐aware machine learning and deep learning for extremely imbalanced data</em> [Doctoral dissertation, Bowling Green State University].
+              </li>
+              <li class="list-group-item">
+                Ahmed, J., Jaman, M. H., Saha, G., &amp; Ghosh, P. (2021). Effect of environmental and socio‐economic factors on the spreading of COVID‐19 at 70 cities/provinces. <em>Heliyon, 7</em>, e06979.
+              </li>
+              <li class="list-group-item">
+                Ahmed, J. (2017). Numerical solutions of third‐order boundary value problems associated with draining and coating flows. <em>Kyungpook Mathematical Journal, 57</em>(4), 651–665.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulation Section: Fluid Simulation instead of Sphere Simulation -->
+    <section id="simulation" class="success">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Fluid Simulation</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Replace previous simulation container with a canvas element -->
+            <canvas id="fluid-canvas"></canvas>
+            <p class="simulation-description">
+              Enjoy the dynamic fluid simulation background powered by WebGL.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Contact</h2>
+          <hr class="star-light" />
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+              <i class="fa fa-envelope"></i> Gmail:
+              <a href="mailto:jahmedbsu@gmail.com">jahmedbsu@gmail.com</a>
+            </p>
+            <p>
+              <i class="fa fa-linkedin"></i> LinkedIn:
+              <a href="https://www.linkedin.com/in/jishan-ahmed-689aa63b" target="_blank">
+                linkedin.com/in/jishan-ahmed-689aa63b
+              </a>
+            </p>
+            <p>
+              <i class="ai ai-google-scholar"></i> Google Scholar:
+              <a href="https://scholar.google.com/citations?hl=en&user=zRYCPIQAAAAJ" target="_blank">
+                scholar.google.com/citations
+              </a>
+            </p>
+            <p>
+              <i class="fa fa-twitter"></i> Twitter:
+              <a href="https://x.com/Jishan_2019" target="_blank">
+                @Jishan_2019
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="footer-above">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col col-md-4">
+              <h3>Location</h3>
+              <p>Ogden, UT</p>
+            </div>
+            <div class="footer-col col-md-4">
+              <h3>Contact</h3>
+              <ul class="list-inline">
+                <li><a href="mailto:jishanahmed1@weber.edu" class="btn-social btn-outline"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="https://gitlab.com/Jishan" class="btn-social btn-outline"><i class="fa fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/jishan-ahmed-689aa63b" class="btn-social btn-outline"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+            <div class="footer-col col-md-4">
+              <h3>News</h3>
+              <p>Read about the <a href="https://www.bgsu.edu/news/2023/10/bgsu-awards-first-doctorate-in-data-science-four-years-after-launching-rigorous-program-to-meet-workforce-demands.html" target="_blank" rel="noopener">BGSU's First Doctorate in Data Science</a> awarded four years after launching the rigorous program.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-below">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              &copy; 2024 Jishan Ahmed. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CV Modal -->
+    <div id="cvModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cvModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="cvModalLabel">Curriculum Vitae</h4>
+          </div>
+          <div class="modal-body">
+            <!-- Using Google Docs viewer to embed the PDF -->
+            <iframe src="https://docs.google.com/gview?embedded=true&amp;url=https://raw.githubusercontent.com/JishanAhmed2019/JishanAhmed2019.github.io/main/Images/JAhmedCV2025.pdf" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
     </div>
-    
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Smooth Scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Replace the p5.js sketch with the fluid simulation by loading Pavel's script -->
+    <!-- You can either inline the entire simulation code from https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/script.js or reference it externally -->
+    <script src="https://paveldogreat.github.io/WebGL-Fluid-Simulation/script.js"></script>
     <script>
-      // Immediately-invoked function expression to keep variables private
-      (function() {
-        'use strict';
-        
-        // Get our canvas element
-        var canvas = document.getElementById('fluid-canvas');
-        // Set up WebGL context with desired parameters (alpha true for transparency)
-        var gl = canvas.getContext('webgl2', {
-          alpha: true,
-          depth: false,
-          stencil: false,
-          antialias: false,
-          preserveDrawingBuffer: true
-        }) || canvas.getContext('webgl', {
-          alpha: true,
-          depth: false,
-          stencil: false,
-          antialias: false,
-          preserveDrawingBuffer: true
-        }) || canvas.getContext('experimental-webgl', {
-          alpha: true,
-          depth: false,
-          stencil: false,
-          antialias: false,
-          preserveDrawingBuffer: true
-        });
-        
-        if (!gl) {
-          alert('Your browser does not support WebGL.');
-          return;
-        }
-        
-        // Resize canvas to fill the window
-        function resizeCanvas() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-          gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        
-        // Clear the canvas with transparent black
-        gl.clearColor(0.0, 0.0, 0.0, 0.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        
-        // --- Simplified simulation code ---
-        // This stub simply animates the clear color to simulate a background change.
-        // Replace this section with the full fluid simulation code from
-        // PavelDoGreat's WebGL-Fluid-Simulation project if desired.
-        var time = 0;
-        function render() {
-          time += 0.01;
-          // Create a shifting color gradient (for demonstration only)
-          var r = (Math.sin(time) + 1) / 2;
-          var g = (Math.sin(time + 2) + 1) / 2;
-          var b = (Math.sin(time + 4) + 1) / 2;
-          gl.clearColor(r, g, b, 0.0);
-          gl.clear(gl.COLOR_BUFFER_BIT);
-          requestAnimationFrame(render);
-        }
-        render();
-        
-        // --- End simplified simulation ---
-        
-        // In a complete, self-contained version you would inline here:
-        //   - All vertex and fragment shader source strings.
-        //   - Code to compile shaders and link your WebGL program.
-        //   - Framebuffer and texture setup for offscreen rendering.
-        //   - The simulation update and render loops.
-        //
-        // The full simulation code is available at:
-        // https://github.com/PavelDoGreat/WebGL-Fluid-Simulation
-        //
-        // By inlining everything into this one HTML file, you eliminate
-        // issues with external file loading and ordering.
-      })();
+      // Once the page loads, initialize the fluid simulation on the canvas in the simulation section.
+      window.onload = function() {
+        var fluidCanvas = document.getElementById('fluid-canvas');
+        // The original fluid simulation code picks the first canvas element;
+        // here we explicitly pass our canvas.
+        window['webgl-fluid'].default(fluidCanvas);
+      };
+
+      // Function to open the CV modal
+      function openCVModal() {
+        $('#cvModal').modal('show');
+      }
     </script>
   </body>
 </html>
